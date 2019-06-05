@@ -1,2 +1,2 @@
 # MyWebsite-Frontend
-A dynamic website
+A static website
