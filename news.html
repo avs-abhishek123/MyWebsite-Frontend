@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;margin:0px 0px 0px 0px;padding:0;background-size: cover;}
+.mySlides {display:all;}
+img {vertical-align:middle; width:100%;height:auto; margin:0 ; display:grid; opacity:0.9;background-size:cover;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 3000px;
+  position: relative;
+  margin-left: 0px;
+  margin-right: -118px;
+  object-fit:cover;
+  display:inline-block;
+  height:100px;
+  padding:0;
+  width: :100vw;
+  height: 100vh;
+}
+
+.barca{
+  position:absolute;
+  width:250px;
+  top:10px;
+  opacity:0.6;
+  margin-left: 550px;
+  border-style:none;
+ 
+}
+
+/* Navbar container */
+.navbar {
+  position:absolute;
+  width:500px;
+  top:10px;
+  opacity:0.9;
+  margin-left: 600px;
+  margin-top: 30px;
+  border-style:none;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: #ed3385;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-shadow: 2px 1px;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 20px; 
+  border: none;
+  outline: none;
+  color:  #ed3385;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin:0; /* Important for vertical align on mobile phones */
+  cursor:pointer;
+  
+}
+.form-popup {
+  display:none;
+  position: absolute;
+  bottom: 0;
+  right: 560px;
+  border: 3px solid #f1f1f1;
+  z-index: 5;
+  top:190px;
+  width:300px;
+  height:430px;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  height: 10px;
+  background-color: white;
+  margin-top: 0px;
+  
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.5;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#40404c;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 5;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float:center;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align:center;
+ 
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 10px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 0%;
+  text-align:right;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 100px;
+  width: 0px;
+  margin: 5px 2px;
+  background-color: #bbb;
+  border-radius: 100%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3s;
+  animation-name: fade;
+  animation-duration: 3s;
+}
+.dove { 
+    /* The image used */
+    background-image: url("leo2.jpg");
+
+
+    /* Set a specific height */
+    height:600px; 
+    top:50px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.light{
+  background-image: url("messi.jpg");
+
+
+    /* Set a specific height */
+    height: 600px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Dropdown button */
+.box {
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  top: 160%; 
+  left: 20%;
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to top right, #EEBE6C 0%, #CA7C4E 100%);
+  box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, .3);
+  color: #786450;
+  font-weight: 1200;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 2px;
+}
+
+.container {
+  border-radius: -5px;
+  background: #fff;
+  box-shadow: 7px 7px 16px 0 rgba(0, 0, 0, .4);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+
+.left {
+  max-width: 63%;
+  flex: 0 0 63%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.right {
+  flex: 1;
+}
+
+.image {
+  width: 74px;
+  height: 74px;
+  position: relative;
+  border-radius: 50%;
+  margin-bottom: 22px;
+}
+
+.image:hover:before {
+  content: '';
+  transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.image:hover:after {
+  content: '';
+  transform: translate(-50%, -50%) rotate(-360deg);
+}
+
+.image:before,
+.image:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0);
+  border-radius: 50%;
+  transition: all 1.5s ease-in-out;
+}
+
+.image:before { 
+  width: 78px;
+  height: 78px;
+  border: 1px solid #786450;
+  border-left-color: transparent;
+}
+
+.image:after { 
+  width: 84px;
+  height: 84px;
+  border: 1px solid #786450;
+  border-right-color: transparent;
+}
+
+.image img {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile p {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profile span {
+  font-weight: 300;
+  font-size: 11px;
+  display: inline-block;
+}
+
+.actions {
+  text-align: center;
+}
+
+.btn {
+  text-align: center;
+  border: 1px solid;
+  width: 125px;
+  border-radius: 20px;
+  line-height: 28px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #786450;
+  display: inline-block;
+  transition: all .5s;
+}
+
+.btn:hover {
+  background: #786450;
+  color: #fff;
+}
+
+.btn + .btn {
+  margin-top: 10px;
+}
+
+.right {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+}
+
+.right-box {
+  background: #f5e8df;
+  flex: 1;
+  text-decoration: none;
+  color: #786450;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background .5s;
+}
+
+.right-box:hover {
+  background: #E1CFC2;
+}
+
+.right-box p {
+  margin: 0;
+}
+
+.right-box span {
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.right-box + .right-box {
+  border-top: 1px solid #fff;
+}
+
+@-webkit-keyframes fade {
+  from {opacity:2 .0} 
+  to {opacity: 3}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+        }
+button.chat
+{
+background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: 20px solid yellow;
+  cursor: pointer;
+  height:300px;
+  width: 99%;
+  text-align: center;
+  
+  margin-bottom:10px;
+  opacity: 0.95;
+  }
+  button.chat:hover {
+  background-color: red; 
+  border: 20px solid black;
+  color: white;
+}
+/* Images used */
+.img1 { background-image: url("messi_fk.gif"); }
+.img2 { background-image: url("chatbox.png"); }
+
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 500px) {
+  .text {font-size: 11px}
+  
+@media only screen and (max-width: 500px) {
+  
+}  
+
+
+}
+</style>
+</head>
+<body style="background-color:#00ffff;>
+
+
+
+<center>
+<div class="slideshow-container">
+      <div class="sadio">
+	  
+
+      <div class="mySlides fade">
+         <img src="bal1.jpg" style="width:100%;height:auto;margin:0 auto;">
+      </div>   
+      <div class="mySlides fade">
+         <img src="bal2.jpg" style="width:100%;height:auto;margin:0 auto;">
+      </div>
+      <div class="mySlides fade">
+          <img src="bal3.jpg" style="width:100%;height:auto;margin:0 auto;">
+      </div>
+<div class="dove"><iframe src="https://en.wikipedia.org/wiki/Lionel_Messi" style="border:2px solid red;" height="600px" width="900px" align="right"></iframe></div>
+<div class="light"></div>
+<br> 
+<div class="navbar">
+  <a href="leonel.html">Home</a>
+  <a href="news.html">News</a>
+  <div class="dropdown">
+    <button class="dropbtn" onclick="Dropdown()" ><b> Sign In </b></button>
+  <div class="form-popup" id="myForm">
+  <form action="Processing.html" class="form-container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>  
+   
+      
+    </div> 
+</div>
+</center>
+
+
+<center>
+
+ <div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+</div>
+<div class="box">
+  <div class="container">
+    <div class="left">
+      <a href="#" class="image">
+        <img src="m.jpg" alt="">
+      </a>
+      
+      <div class="profile">
+        <p>LEO</p>
+
+        <span>MAGICIAN</span>  
+      </div>
+
+      <div class="actions">
+        <a href="https://www.instagram.com/leomessi/?hl=en" class="btn">Follow</a>
+        
+        <a href="Like.html" class="btn">LikE</a>
+		
+		
+      </div>
+    </div>
+    
+    <div class="right">
+      <a href="#" class="right-box">
+        <p>342</p>
+      
+        <span>Posts</span>
+      </a>
+      
+      <a href="#" class="right-box">
+        <p>207</p>
+        
+        <span>following</span>
+      </a>
+      
+      <a href="#" class="right-box">
+        <p>98.7M</p>
+        
+        <span>Followers</span>
+      </a>
+    </div>
+  </div>
+		
+</div>
+</center>
+<h1><u> To load iframes you need internet connection</u></h1>
+<div class="dove"><iframe src="https://www.independent.co.uk/topic/LionelMessi" border=4px solid red height="600px" width="100%" ></iframe></div>
+
+
+
+
+
+
+<script> 
+
+var slideIndex = 0;
+showSlides();
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+/* form */
+
+function Dropdown() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+
+</script>
+
+
+
+</body>
+</html> 

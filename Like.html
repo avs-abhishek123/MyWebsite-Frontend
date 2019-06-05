@@ -1,0 +1,86 @@
+
+<html>
+    <head>
+        <title>
+            CHATBOT
+        </title>
+        <style>
+        body{
+            background : #ff1289 url("ilu2.gif") no-repeat center;
+
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .chatinput {
+            width: 200px;
+            height: 50px;
+			align:center;
+            background: rgb(238, 255, 0);
+            -webkit-transition: width 2s; /* Safari */
+            transition: width 2s;
+        }
+        #div1 {
+            transition-timing-function: linear;
+        }
+        div:hover {
+            width: 100%;
+        }
+
+        </style>
+        <script>
+            var know={
+                "hi":"Hi, welcome to chat box",
+				"hey":"Hi, welcome to chat box",
+				"what is your name?":"Messi",
+				"who has created you?":"Abhishek",
+				"what is your creator's name?":"Abhishek",
+				"what's your name?":"Messi",
+				"who is messi?":" A Football player",
+				"hello":"Hi",
+                "how are you?":"good",
+                "ok":":) Have a nice day",
+				"ohk":":) Have a nice day",
+				"okay":":) Have a nice day",
+				"k":":) Have a nice day",
+				"Thank you":"welcome",
+				"thank you":"welcome",
+				"thanks":"welcome",
+				"Thank u":"welcome",
+				"thank u":"welcome",
+				"tysm":"welcome",
+				"Thanks":"welcome",
+				"Tysm":"wlcm"
+            };
+            function talk()
+            {
+                var user=document.getElementById("userbox").value;
+                document.getElementById("userbox").value="";      /*  if u dnt write this line then the
+                                                                box wont get empty after a key is pressed */
+                document.getElementById("chatlog").innerHTML +=user+"<br>";
+                if(user in know){
+                    document.getElementById("chatlog").innerHTML +=know[user]+"<br>";
+                }else{
+                    document.getElementById("chatlog").innerHTML +="I dont understand...<br>";
+
+                }
+            }
+        </script>
+    </head>
+    <body>
+	<h1>LIKE</h1>
+UNDER CONSTRUCTION
+
+        <p id="chatlog">
+            - - C H A T - -<br>
+        </p><br>
+        <div class="chatinput"><br>
+        <input id="userbox" type="text" onkeydown="if(event.keyCode==13) {talk()}" ><br><br>
+        </div>              <br><br>                                         <!--13 is key code of enter -->
+        <br><br><br><br>
+<button onclick="location.href = 'leonel.html';">
+GO BACK TO HOME PAGE
+</button>
+    </body>
+</html>
